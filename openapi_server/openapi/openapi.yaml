@@ -1,0 +1,40 @@
+openapi: 3.0.2
+info:
+  title: example
+  version: 0.0.1
+servers:
+- url: /
+paths:
+  /hoge:
+    get:
+      operationId: get_hoge
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hoge'
+          description: ok
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+components:
+  schemas:
+    Hoge:
+      example:
+        fuga:
+          id: id
+        id: id
+      properties:
+        id:
+          type: string
+        fuga:
+          $ref: '#/components/schemas/Fuga'
+      type: object
+    Fuga:
+      example:
+        id: id
+      properties:
+        id:
+          type: string
+        hoge:
+          $ref: '#/components/schemas/Hoge'
+      type: object

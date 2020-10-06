@@ -1,0 +1,31 @@
+openapi: 3.0.2
+info:
+  title: example
+  version: 0.0.1
+paths:
+  /hoge:
+    get:
+      operationId: getHoge
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Hoge"
+components:
+  schemas:
+    Hoge:
+      type: object
+      properties:
+        id:
+          type: string
+        fuga:
+          $ref: "#/components/schemas/Fuga"
+    Fuga:
+      type: object
+      properties:
+        id:
+          type: string
+        hoge:
+          $ref: "#/components/schemas/Hoge"
